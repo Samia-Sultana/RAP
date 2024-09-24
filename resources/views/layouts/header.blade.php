@@ -213,10 +213,14 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
-              </a>
+                <form action="{{ route('logout') }}" method="post">
+                    {{ csrf_field() }}
+                    <i class="bi bi-box-arrow-right"></i>
+                    <button type="submit">
+                        sign out
+                    </button>
+                    </form>
+
             </li>
 
           </ul><!-- End Profile Dropdown Items -->
