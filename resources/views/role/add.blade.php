@@ -16,7 +16,7 @@
 
   <section class="section">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-8">
 
         <div class="card">
           <div class="card-body">
@@ -30,6 +30,15 @@
                 <div class="col-sm-10">
                   <input type="text" class="form-control" name="name">
                 </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-2 col-form-label">Permission</label>
+                @foreach ($getPermission as $value )
+                <div class="col-sm-12">
+                    <label><input type="checkbox" name="" id="">{{ $value->name }}</label>
+                </div>
+
+                @endforeach
               </div>
 
               <div class="row mb-3">
