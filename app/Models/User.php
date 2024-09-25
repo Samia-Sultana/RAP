@@ -44,4 +44,8 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    static public function getRecord(){
+        return User::get();
+    }
 }

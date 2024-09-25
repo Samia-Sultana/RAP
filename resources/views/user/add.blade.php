@@ -20,10 +20,10 @@
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Role</h5>
+            <h5 class="card-title">User</h5>
 
             <!-- General Form Elements -->
-            <form action="" method="post">
+            <form action="{{ url('user/add') }}" method="post">
                 @csrf
               <div class="row mb-3">
                 <label for="inputText" class="col-sm-2 col-form-label">Name</label>
@@ -32,14 +32,30 @@
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Permission</label>
-                @foreach ($getPermission as $value )
-                <div class="col-sm-12">
-                    <label><input type="checkbox" value="{{ $value->id }}" name="permission_id[]" id="">{{ $value->name }}</label>
+                <label for="inputText" class="col-sm-2 col-form-label">email</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="email">
                 </div>
-
-                @endforeach
               </div>
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-2 col-form-label">password</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="password">
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label for="inputText" class="col-sm-2 col-form-label">Role</label>
+                <div class="col-sm-10">
+                    <select name="role_id" id="" required>
+                        <option value="">Select</option>
+                        @foreach ($getRole as $role )
+                        <option value="{{$role->id}}">{{$role->name}}</option>
+                        @endforeach
+                    </select>
+                     </div>
+              </div>
+
 
               <div class="row mb-3">
                 <div class="col-sm-10">

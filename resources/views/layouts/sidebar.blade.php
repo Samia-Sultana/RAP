@@ -11,7 +11,7 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{ url('layouts.user') }}">
+        <a class="nav-link collapsed" href="{{ url('user/add') }}">
           <i class="bi bi-person"></i>
           <span>User</span>
         </a>
