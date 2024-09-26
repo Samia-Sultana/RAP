@@ -2,23 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PermissionRole;
 use App\Models\Role;
 use App\Models\User;
+use Auth;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function list(){
+        $permissionUser = PermissionRole::getPermission('User', Auth::user()->role_id);
+        if(empty($permissionUser)){
+            abort(404);
+        }
+        $data['permissionAddUser'] = PermissionRole::getPermission('add user', Auth::user()->role_id);
+        $data['permissionEditUser'] = PermissionRole::getPermission('edit user', Auth::user()->role_id);
+        $data['permissionDeleteUser'] = PermissionRole::getPermission('delete user', Auth::user()->role_id);
+
         $data['getRecord'] = User::getRecord();
         return view('user.list', $data);
     }
 
     public function add(){
+        $permissionUserAdd = PermissionRole::getPermission('add user', Auth::user()->role_id);
+        if(empty($permissionUserAdd)){
+            abort(404);
+        }
         $data['getRole'] = Role::getRecord();
         return view('user.add', $data);
     }
 
     public function insert(Request $request){
+        $permissionUserAdd = PermissionRole::getPermission('add user', Auth::user()->role_id);
+        if(empty($permissionUserAdd)){
+            abort(404);
+        }
         $request->validate([
             'email' => 'required|email|unique:users'
         ]);

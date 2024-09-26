@@ -21,6 +21,7 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">User</h5>
+            <a href="{{ url('user') }}" class="btn btn-primary pull-right">List</a>
 
             <!-- General Form Elements -->
             <form action="{{ url('user/add') }}" method="post">

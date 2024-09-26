@@ -22,7 +22,10 @@
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">user List</h5>
+            @if(!empty($permissionAddUser))
             <a href="{{ url('user/add') }}" class="btn btn-primary pull-right">Add</a>
+            @endif
+
             <!-- Table with stripped rows -->
             <table class="table table-striped">
               <thead>
@@ -48,8 +51,14 @@
                     <td>{{ $value->created_at }}</td>
 
                     <td>
+                        @if(!empty($permissionEditUser))
+
                         <a href="{{ url('user/edit/' . $value->id) }}">Edit</a>
+                        @endif
+                        @if(!empty($permissionDeleteUser))
+
                         <a href="{{ url('user/delete/' . $value->id) }}">delete</a>
+                        @endif
 
                     </td>
 
