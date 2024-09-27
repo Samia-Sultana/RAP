@@ -59,6 +59,8 @@
 
                         <a href="{{ url('user/delete/' . $value->id) }}">delete</a>
                         @endif
+                        <a href="{{ url('user/create/' . $value->id) }}">send mail</a>
+
 
                     </td>
 

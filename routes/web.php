@@ -27,6 +27,8 @@ Route::group(['middleware' => 'useradmin'], function () {
     Route::get('user/edit/{id}', [UserController::class, 'edit']);
     Route::post('user/edit/{id}', [UserController::class, 'update']);
     Route::get('user/delete/{id}', [UserController::class, 'delete']);
+    Route::get('user/create/{id}', [UserController::class, 'sendEmail']);
+
 
 
 
